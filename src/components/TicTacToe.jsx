@@ -14,7 +14,7 @@ function TicTacToe() {
     <div className='game'>
       <h1>Tic-Tac-Toe</h1>
       <div className='status'>
-         <span>X:{Xwin}</span> <span>Draws:{drawCnt}</span> <span>O:{Owin}</span>
+         <span>X: {Xwin}</span> <span>Draws: {drawCnt}</span> <span>O: {Owin}</span>
       </div>
      
       {getStatusMessage()}
