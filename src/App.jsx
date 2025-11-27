@@ -1,10 +1,13 @@
+import React from 'react';
+import TicTacToe from './components/TicTacToe';
 import './App.css'
 
-function App() {
 
+function App() {
+  
   return (
     <>
-      <h1>XTicTacToe</h1>
+      <TicTacToe/>
     </>
   )
 }
