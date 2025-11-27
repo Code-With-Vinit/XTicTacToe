@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React from 'react';
 import useTicTacToe from '../Hooks/useTicTacToe';
 
 
@@ -7,31 +7,31 @@ import useTicTacToe from '../Hooks/useTicTacToe';
 
 function TicTacToe() {
 
-  const {board,calculateWinner,handleClick,getStatusMessage,resetGame}=useTicTacToe
+  const {board,handleClick,getStatusMessage,resetGame,Xwin,Owin,drawCnt,resetAll,playAgain}=useTicTacToe()
  
   console.log(board);
   return (
     <div className='game'>
       <h1>Tic-Tac-Toe</h1>
       <div className='status'>
-         <span>X:{}</span> <span>Draws:{}</span> <span>O:{}</span>
+         <span>X:{Xwin}</span> <span>Draws:{drawCnt}</span> <span>O:{Owin}</span>
       </div>
      
-      <p>Turn:{}</p>
+      {getStatusMessage()}
 
       <div className='board'>
         {
-          board.map((_,index)=>{
-            return <button className='cell' key={index}>
-              X
+          board.map((b,index)=>{
+            return <button className='cell' key={index} onClick={()=>handleClick(index)} disabled={b!==null}>
+              {b}
             </button>
           })
         }
       </div>
 
       <div className='btn-div'>
-        <button className='reset-btn' onClick={resetGame}>Restart Round</button>
-        <button className='reset-btn'>Reset All</button>
+        <button className='reset-btn' onClick={resetGame}>{playAgain?"Play Again":"Restart Round"}</button>
+        <button className='reset-btn'onClick={resetAll}>Reset All</button>
       </div>
     </div>
   )
